@@ -5,11 +5,10 @@ const Cart = () => {
     <div className="container my-5">
       <div className="row g-4">
         <div className="col-9">
-          <div className="row g-4 align-items-center">
-            <div className="col-4">
-              {/* <div className="d-flex border p-2 rounded align-items-center p-3"> */}
+          <div className="row mb-3 g-4 align-items-center">
+            <div className="col-4 text-center">
               <img
-                src=""
+                src="https://i.ibb.co/T4MnJjr/2.jpg"
                 alt=""
                 height="120px"
                 width="180px"
@@ -17,19 +16,24 @@ const Cart = () => {
               />
             </div>
             <div className="col-8 pe-5">
-              <h6 className="text-success">name</h6>
+              <h5 className="text-success">Italy</h5>
               <p className="mb-1 text-secondary">
                 Italy, a European country with a long Mediterranean coastline,
                 has left a powerful mark on Western culture and cuisine. Its
                 capital, Rome
               </p>
               <div className="d-flex justify-content-between align-items-center">
-                <h6>
+                <h5>
                   <span className="text-warning">$</span>
-                  price
-                </h6>
-                <div>
-                  Quantity: <input type="number" width="20px" />
+                  1200
+                </h5>
+                <div className="row">
+                  <span className="col-4"> Quantity:</span>
+                  <input
+                    className="col-3 fw-bold text-success"
+                    type="number"
+                    value="1"
+                  />
                 </div>
                 <button className="delete-btn">
                   <img

@@ -16,9 +16,17 @@ const Products = () => {
       </h2>
       <div className="container">
         <div className="row row-cols-2 g-4 my-5">
-          {products?.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+          {products ? (
+            products?.map((product) => (
+              <Product key={product._id} product={product} />
+            ))
+          ) : (
+            <div class="d-flex justify-content-center mx-auto">
+              <div class="spinner-border text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
