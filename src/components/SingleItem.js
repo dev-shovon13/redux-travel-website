@@ -1,8 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./../redux/Shopping/shoppingActions";
 
-const SingleItem = ({ currentItem, addToCart }) => {
+const SingleItem = () => {
+  const currentItem = useSelector((state) => state.shop.currentItem);
+  const dispatch = useDispatch();
+
   const { _id, img, name, info, price } = currentItem;
   return (
     <div className="single-item my-5 text-center border p-3 shadow-sm">
@@ -16,7 +19,7 @@ const SingleItem = ({ currentItem, addToCart }) => {
           {price}
         </h6>
         <button
-          onClick={() => addToCart(_id)}
+          onClick={() => dispatch(addToCart(_id))}
           className="add-btn ms-2 align-items-center"
         >
           <img
@@ -31,15 +34,5 @@ const SingleItem = ({ currentItem, addToCart }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    currentItem: state.shop.currentItem,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: (id) => dispatch(addToCart(id)),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleItem);
+export default SingleItem;

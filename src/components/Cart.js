@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 
-const Cart = ({ cart }) => {
+const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  const cart = useSelector((state) => state.shop.cart);
+
   useEffect(() => {
     let items = 0;
     let price = 0;
@@ -27,29 +29,24 @@ const Cart = ({ cart }) => {
         </div>
         <div className="col-md-3">
           <div className="bg-light p-4 rounded mt-3">
-          <h5 className="text-center border p-1 text-success bg-white">
-            Summary
-          </h5>
-          <p className="text-secondary">
-            Order Total: <span className="text-warning">$</span>
-            <span className="fw-bold">{totalPrice}</span>
-          </p>
-          <p className="text-secondary">
-            Total Items: <span className="fw-bold">{totalItems}</span>
-          </p>
-          <div className="text-center mt-5">
-            <button className="add-btn py-1">Continue Checkout</button>
-          </div>
+            <h5 className="text-center border p-1 text-success bg-white">
+              Summary
+            </h5>
+            <p className="text-secondary">
+              Order Total: <span className="text-warning">$</span>
+              <span className="fw-bold">{totalPrice}</span>
+            </p>
+            <p className="text-secondary">
+              Total Items: <span className="fw-bold">{totalItems}</span>
+            </p>
+            <div className="text-center mt-5">
+              <button className="add-btn py-1">Continue Checkout</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    cart: state.shop.cart,
-  };
-};
 
-export default connect(mapStateToProps)(Cart);
+export default Cart;

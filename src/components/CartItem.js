@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   adjustItemQty,
   removeFromCart,
 } from "../redux/Shopping/shoppingActions";
 
-const CartItem = ({ cart, removeFromCart, adjustQty }) => {
+const CartItem = ({ cart }) => {
+  const dispatch = useDispatch();
   const { _id, name, info, img, price, qty } = cart;
   const [input, setInput] = useState(qty);
 
   const inputHandler = (e) => {
     if (e.target.value >= 0) {
       setInput(e.target.value);
-      adjustQty(_id, e.target.value);
+      dispatch(adjustItemQty(_id, e.target.value));
     }
   };
 
@@ -44,7 +45,10 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
               onChange={inputHandler}
             />
           </div>
-          <button onClick={() => removeFromCart(_id)} className="delete-btn">
+          <button
+            onClick={() => dispatch(removeFromCart(_id))}
+            className="delete-btn"
+          >
             <img
               src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
               height="20px"
@@ -56,11 +60,5 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
     </div>
   );
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    removeFromCart: (id) => dispatch(removeFromCart(id)),
-    adjustQty: (id, value) => dispatch(adjustItemQty(id, value)),
-  };
-};
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default CartItem;

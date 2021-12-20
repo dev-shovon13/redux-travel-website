@@ -6,6 +6,7 @@ import Product from "./Product";
 const Products = () => {
   const products = useSelector((state) => state.shop.products);
   const dispatch = useDispatch();
+
   useEffect(() => {
     fetch("https://traveezy.herokuapp.com/services")
       .then((res) => res.json())
