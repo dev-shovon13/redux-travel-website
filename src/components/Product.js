@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import {
+  addToCart,
+  loadCurrentItem,
+} from "./../redux/Shopping/shoppingActions";
 
-const Product = (props) => {
-  const { name, info, img, price } = props.product;
-
+const Product = ({ product, addToCart, loadCurrentItem }) => {
+  const { id, name, info, img, price } = product;
+  console.log(product);
   return (
     <div className="col">
       <div className="d-flex border p-2 rounded align-items-center">
@@ -23,10 +28,18 @@ const Product = (props) => {
               {price}
             </h6>
             <div>
-              <Link to="/item">
-                <button className="add-btn view">View Item</button>
+              <Link to={`/item/${id}`}>
+                <button
+                  onClick={() => loadCurrentItem(product)}
+                  className="add-btn view"
+                >
+                  View Item
+                </button>
               </Link>
-              <button className="add-btn ms-2 align-items-center">
+              <button
+                onClick={() => addToCart(id)}
+                className="add-btn ms-2 align-items-center"
+              >
                 <img
                   src="https://i.ibb.co/0fPzX7x/shopping-cart.png"
                   height="20px"
@@ -43,4 +56,11 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    loadCurrentItem: (item) => dispatch(loadCurrentItem(item)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Product);

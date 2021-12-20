@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
+  const [cartCount, setCartCount] = useState(0);
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
+    setCartCount(count);
+  }, [cart, cartCount]);
   return (
     <div>
-      <nav className="navbar navbar-light bg-nav">
+      <nav className="navbar navbar-light bg-nav shadow-sm">
         <div className="container">
           <Link to="/">
             <img
@@ -21,7 +30,7 @@ const Navbar = () => {
                 height="40px"
                 alt="logo"
               />
-              <h5 className="cart-qty">0</h5>
+              <h5 className="cart-qty">{cartCount}</h5>
             </div>
           </Link>
         </div>
@@ -30,4 +39,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Navbar);

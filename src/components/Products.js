@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import Product from "./Product";
 
-const Products = () => {
-  const [products, setProducts] = useState();
+const Products = ({ products }) => {
+  // const [products, setProducts] = useState();
+  // useEffect(() => {
+  //   fetch("https://traveezy.herokuapp.com/services")
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
 
-  useEffect(() => {
-    fetch("https://traveezy.herokuapp.com/services")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
   return (
     <>
       <h2 className="text-success text-decoration-underline text-center">
@@ -32,5 +33,10 @@ const Products = () => {
     </>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
 
-export default Products;
+export default connect(mapStateToProps)(Products);
