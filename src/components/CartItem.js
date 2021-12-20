@@ -6,13 +6,13 @@ import {
 } from "../redux/Shopping/shoppingActions";
 
 const CartItem = ({ cart, removeFromCart, adjustQty }) => {
-  const { id, name, info, img, price, qty } = cart;
+  const { _id, name, info, img, price, qty } = cart;
   const [input, setInput] = useState(qty);
 
   const inputHandler = (e) => {
     if (e.target.value >= 0) {
       setInput(e.target.value);
-      adjustQty(id, e.target.value);
+      adjustQty(_id, e.target.value);
     }
   };
 
@@ -44,7 +44,7 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
               onChange={inputHandler}
             />
           </div>
-          <button onClick={() => removeFromCart(id)} className="delete-btn">
+          <button onClick={() => removeFromCart(_id)} className="delete-btn">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png"
               height="20px"

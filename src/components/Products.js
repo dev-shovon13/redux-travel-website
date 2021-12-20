@@ -1,14 +1,15 @@
-// import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { connect, useDispatch } from "react-redux";
+import { setProducts } from "../redux/Shopping/shoppingActions";
 import Product from "./Product";
 
 const Products = ({ products }) => {
-  // const [products, setProducts] = useState();
-  // useEffect(() => {
-  //   fetch("https://traveezy.herokuapp.com/services")
-  //     .then((res) => res.json())
-  //     .then((data) => setProducts(data));
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    fetch("https://traveezy.herokuapp.com/services")
+      .then((res) => res.json())
+      .then((data) => dispatch(setProducts(data)));
+  }, [dispatch]);
 
   return (
     <>

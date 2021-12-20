@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { addToCart } from "./../redux/Shopping/shoppingActions";
 
 const SingleItem = ({ currentItem, addToCart }) => {
-  console.log(currentItem);
-  const { id, img, name, info, price } = currentItem;
+  const { _id, img, name, info, price } = currentItem;
   return (
     <div className="single-item my-5 text-center border p-3 shadow-sm">
       <img src={img} alt="" className="img-fluid" />
@@ -17,7 +16,7 @@ const SingleItem = ({ currentItem, addToCart }) => {
           {price}
         </h6>
         <button
-          onClick={() => addToCart(id)}
+          onClick={() => addToCart(_id)}
           className="add-btn ms-2 align-items-center"
         >
           <img

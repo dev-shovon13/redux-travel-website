@@ -1,5 +1,12 @@
 import * as actionTypes from "./shopping-types";
 
+export const setProducts = (products) => {
+  return {
+    type: actionTypes.SET_PRODUCTS,
+    payload: products,
+  };
+};
+
 export const addToCart = (itemID) => {
   return {
     type: actionTypes.ADD_TO_CART,
@@ -32,12 +39,5 @@ export const loadCurrentItem = (item) => {
   return {
     type: actionTypes.LOAD_CURRENT_ITEM,
     payload: item,
-  };
-};
-
-export const fetchProductsSuccess = (products) => {
-  return {
-    type: actionTypes.FETCH_PRODUCTS_SUCCESS,
-    products: products,
   };
 };

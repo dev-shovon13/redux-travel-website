@@ -7,8 +7,7 @@ import {
 } from "./../redux/Shopping/shoppingActions";
 
 const Product = ({ product, addToCart, loadCurrentItem }) => {
-  const { id, name, info, img, price } = product;
-  console.log(product);
+  const { _id, name, info, img, price } = product;
   return (
     <div className="col">
       <div className="d-flex border p-2 rounded align-items-center">
@@ -28,7 +27,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
               {price}
             </h6>
             <div>
-              <Link to={`/item/${id}`}>
+              <Link to={`/item/${_id}`}>
                 <button
                   onClick={() => loadCurrentItem(product)}
                   className="add-btn view"
@@ -37,7 +36,7 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
                 </button>
               </Link>
               <button
-                onClick={() => addToCart(id)}
+                onClick={() => addToCart(_id)}
                 className="add-btn ms-2 align-items-center"
               >
                 <img
