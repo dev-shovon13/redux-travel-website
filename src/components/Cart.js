@@ -20,12 +20,12 @@ const Cart = ({ cart }) => {
   return (
     <div className="container my-3">
       <div className="row">
-        <div className="col-9">
+        <div className="col-md-9">
           {cart.map((item) => (
             <CartItem key={item._id} cart={item} />
           ))}
         </div>
-        <div className="col-3">
+        <div className="col-md-3">
           <div className="bg-light p-4 rounded mt-3">
           <h5 className="text-center border p-1 text-success bg-white">
             Summary

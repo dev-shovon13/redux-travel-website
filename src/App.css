@@ -35,7 +35,7 @@
   background-color: rgb(4, 86, 107);
 }
 .single-item {
-  width: 30%;
+  width: 90%;
   margin: auto;
 }
 .delete-btn {
@@ -58,10 +58,25 @@ input {
 input:focus {
   outline: none;
 }
-.cart-pd{
+.cart-pd {
   transition: all 0.5s;
 }
-.cart-pd:hover{
+.cart-pd:hover {
   transform: scale(1.01);
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .single-item {
+    width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .single-item {
+    width: 30%;
+  }
+}
+@media (min-width: 1312px) {
+  .single-item {
+    width: 40%;
+  }
 }

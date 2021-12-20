@@ -17,7 +17,7 @@ const Products = ({ products }) => {
         Destinations
       </h2>
       <div className="container">
-        <div className="row row-cols-2 g-4 my-5">
+        <div className="row row-cols-1 row-cols-lg-2 g-4 my-5">
           {products ? (
             products?.map((product) => (
               <Product key={product._id} product={product} />

@@ -10,7 +10,8 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
   const { _id, name, info, img, price } = product;
   return (
     <div className="col">
-      <div className="d-flex border p-2 rounded align-items-center">
+      <div className="d-md-flex border p-2 rounded align-items-center">
+        <div className="text-center">
         <img
           src={img}
           alt=""
@@ -18,10 +19,11 @@ const Product = ({ product, addToCart, loadCurrentItem }) => {
           width="180px"
           className="rounded"
         />
+        </div>
         <div className="ms-3">
           <h6 className="text-success">{name}</h6>
           <p className="mb-1 text-secondary">{info}</p>
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-xl-flex justify-content-between align-items-center">
             <h6>
               <span className="text-warning">$</span>
               {price}

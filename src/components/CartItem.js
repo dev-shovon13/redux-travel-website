@@ -17,20 +17,20 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
   };
 
   return (
-    <div className="row my-3 align-items-center border py-3 shadow-sm cart-pd">
+    <div className="row my-3 align-items-center border py-3 shadow-sm cart-pd mx-1">
       <div className="col-3 text-center">
         <img
           src={img}
           alt=""
           height="120px"
           width="180px"
-          className="rounded"
+          className="rounded img-fluid"
         />
       </div>
       <div className="col-9 pe-5">
         <h5 className="text-success">{name}</h5>
         <p className="mb-1 text-secondary">{info}</p>
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="d-md-flex justify-content-between align-items-center">
           <h5>
             <span className="text-warning">$</span>
             {price}

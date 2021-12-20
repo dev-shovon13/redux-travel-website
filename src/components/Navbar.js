@@ -24,7 +24,7 @@ const Navbar = ({ cart }) => {
             />
           </Link>
           <Link to="/cart">
-            <div className="d-flex cart">
+            <div className="d-flex cart me-4 me-md-0">
               <img
                 src="https://i.ibb.co/0fPzX7x/shopping-cart.png"
                 height="40px"
