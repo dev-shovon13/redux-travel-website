@@ -58,3 +58,10 @@ input {
 input:focus {
   outline: none;
 }
+.cart-pd{
+  transition: all 0.5s;
+}
+.cart-pd:hover{
+  transform: scale(1.01);
+  cursor: pointer;
+}

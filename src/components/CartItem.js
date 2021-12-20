@@ -15,8 +15,8 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
   };
 
   return (
-    <div className="row mb-3 g-4 align-items-center">
-      <div className="col-4 text-center">
+    <div className="row my-3 align-items-center border py-3 shadow-sm cart-pd">
+      <div className="col-3 text-center">
         <img
           src={img}
           alt=""
@@ -25,7 +25,7 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
           className="rounded"
         />
       </div>
-      <div className="col-8 pe-5">
+      <div className="col-9 pe-5">
         <h5 className="text-success">{name}</h5>
         <p className="mb-1 text-secondary">{info}</p>
         <div className="d-flex justify-content-between align-items-center">

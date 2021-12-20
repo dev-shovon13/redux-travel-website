@@ -18,14 +18,15 @@ const Cart = ({ cart }) => {
   }, [cart, totalPrice, setTotalPrice, totalItems, setTotalItems]);
 
   return (
-    <div className="container my-5">
-      <div className="row g-4">
+    <div className="container my-3">
+      <div className="row">
         <div className="col-9">
           {cart.map((item) => (
             <CartItem key={item._id} cart={item} />
           ))}
         </div>
-        <div className="col-3 bg-light p-4 rounded">
+        <div className="col-3">
+          <div className="bg-light p-4 rounded mt-3">
           <h5 className="text-center border p-1 text-success bg-white">
             Summary
           </h5>
@@ -38,6 +39,7 @@ const Cart = ({ cart }) => {
           </p>
           <div className="text-center mt-5">
             <button className="add-btn py-1">Continue Checkout</button>
+          </div>
           </div>
         </div>
       </div>
