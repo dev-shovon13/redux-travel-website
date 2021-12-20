@@ -11,7 +11,7 @@ const shopReducer = (state = initialState, action) => {
       return { ...state, products: action.payload };
 
     case actionTypes.ADD_TO_CART:
-      // Great Item data from products array
+      // Get Item data from products array
       const item = state.products.find(
         (product) => product._id === action.payload.id
       );
