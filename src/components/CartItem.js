@@ -10,8 +10,10 @@ const CartItem = ({ cart, removeFromCart, adjustQty }) => {
   const [input, setInput] = useState(qty);
 
   const inputHandler = (e) => {
-    setInput(e.target.value);
-    adjustQty(id, e.target.value);
+    if (e.target.value >= 0) {
+      setInput(e.target.value);
+      adjustQty(id, e.target.value);
+    }
   };
 
   return (

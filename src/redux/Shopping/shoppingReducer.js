@@ -63,11 +63,18 @@ const initialState = {
       img: "https://i.ibb.co/7NBZ9rz/9.jpg",
     },
   ],
+  // products:[],
   cart: [],
   currentItem: null,
 };
 const shopReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.FETCH_PRODUCTS_SUCCESS:
+      return {
+          ...state,
+          products: action.payload
+      }
+
     case actionTypes.ADD_TO_CART:
       // Great Item data from products array
       const item = state.products.find(
