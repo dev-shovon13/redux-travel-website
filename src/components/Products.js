@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { setProducts } from "../redux/Shopping/shoppingActions";
 import Product from "./Product";
 
-const Products = ({ products }) => {
-  const dispatch = useDispatch();
+const Products = ({ products,setProducts }) => {
   useEffect(() => {
     fetch("https://traveezy.herokuapp.com/services")
       .then((res) => res.json())
-      .then((data) => dispatch(setProducts(data)));
-  }, [dispatch]);
+      .then((data) => setProducts(data));
+  }, [setProducts]);
 
   return (
     <>
@@ -39,5 +38,10 @@ const mapStateToProps = (state) => {
     products: state.shop.products,
   };
 };
+const mapDispatchToProps=(dispatch)=>{
+  return{
+    setProducts: (data)=> dispatch(setProducts(data))
+  }
+}
 
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps,mapDispatchToProps)(Products);
